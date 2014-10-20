@@ -5,30 +5,34 @@ Data: http://planet.osm.org/replication/day/000/000/
 
 # Install
 
-`git clone https://github.com/Rub21/osm-progress-visualization.git`
+```sh
+git clone https://github.com/Rub21/osm-progress-visualization.git
+cd osm-progress-visualization
+npm install
+```
 
-`npm install`
 
+# Draw Boundary
 
- # Draw Boundary
-
- http://geojson.io/#map=2/20.1/0.0
+1. Create a geojson rectangle using [geojson.io](http://geojson.io/#map=2/20.1/0.0)
 
 ![screenshot from 2014-10-20 17 11 54](https://cloud.githubusercontent.com/assets/1152236/4709206/c0c68120-589d-11e4-85f9-b6def29ce57a.png)
 
-after compy and paste the square from geojson file
-http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
+2. Copy and paste the rectangle's geojson into the the first field [here](http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/)
 
 
 # Process The Files
 
-- Process in block:
+Process the data using the following command:
 
- `./process-files 705 716 dc.gejson`
+```sh
+./process-files 705 716 dc.gejson
+```
 
-Where:
-min-file=500( 25-Jan-2014)
-max-file=717( 30-Aug-2014)
+- 705 is the starting OSM replication file (in this case, Jan 25th 2014)
+- 716 is the ending OSM replication file (in this case, Aug 30th 2014)
+- dc.geojson is the bounding rectangle geojson file
+
 
 # Tile-stitch
 
@@ -51,27 +55,24 @@ max-file=717( 30-Aug-2014)
 
 # Create GIF Animation
 
-- Procesamos los archivos .png
+- Process the directory of png files
 
 `mogrify -format gif *.png`
 
-- Creamos el Gif
+- Create the gif
 
 `gifsicle --loop=0 --colors=255 *.gif > dc.gif`
 
-- Ponemos un pause al final de 5 segundos
+- Add a 5 second pause to the end of the gif
 
-el siguiente comando no trabaja en sistema de 64bits, trabaja en uns sistema de 32bits.
-
+- *Note:* the following command only works on 32bit systems
 
 `gifsicle dc.gif  -d500 "#-1"`
 
-- Cambiamos de tamano 
+- Resize the gif
 
 `gifsicle dc.gif --colors=255 | gifsicle --unoptimize | gifsicle  --resize-fit-width 500 -O2 > dc-half.gif`
 
+- Run the following to extract jpeg files from the gif for each frame
 
-- Si en caso de que se quiere extraer otros frames  como gif.
-
- `gifsicle --colors=255 --unoptimize --explode dc.gif` to explode the gif into a gif per frames
-
+`gifsicle --colors=255 --unoptimize --explode dc.gif`
