@@ -4,7 +4,7 @@ import time
 import json
 
 if (len(argv) < 3):
-    print "ingrese el nuemor del archivo el menor y despues el mayor"
+    print "Ingrese el numero del archivo primero el menor y despues el mayor"
     exit()
 config_json=[]
 
