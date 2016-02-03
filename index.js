@@ -1,30 +1,20 @@
 var fs = require('fs');
 var osmium = require('osmium');
+var turf = require('turf');
 var argv = require('optimist').argv;
-
+var users = require('./users.js');
 var osmfile = argv.osmfile;
 var boundfile = argv.boundfile;
-var path = argv.path;
-//var path = '';
-
 var nodes = {};
 var bounds;
-
-
-var geojson = {
-	"type": "FeatureCollection",
-	"features": []
-};
-
-
+var geojson = turf.featurecollection([]);
 fs.readFile(boundfile, 'utf8', function(err, data) {
 	if (err) {
 		console.log('Error: ' + err);
 		return;
 	}
 	bounds = JSON.parse(data);
-	var file = new osmium.File(path + osmfile);
-	var reader = new osmium.Reader(file);
+	var reader = new osmium.Reader(osmfile);
 	var handler = new osmium.Handler();
 	console.log('Process file : ' + osmfile);
 	handler.on('node', function(node) {
@@ -32,32 +22,25 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 		if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[0])) {
 			nodes[node.id] = coord;
 		}
-
 	});
-
 	handler.on('way', function(way) {
-		var feature = {
-			"type": "Feature",
-			"properties": {},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": []
+		if (users[way.user] && way.tags("building")) {
+			var feature = turf.linestring([]);
+			feature.properties.user = way.user;
+			feature.properties.timestamp = way.timestamp_seconds_since_epoch;
+			for (var i = 0; i < way.node_refs().length; i++) {
+				if (nodes.hasOwnProperty(way.node_refs()[i])) {
+					feature.geometry.coordinates.push(nodes[way.node_refs()[i]]);
+				}
 			}
-		};
-		var wayinpolygon = true;
+			if (feature.geometry.coordinates.length > 0) {
+				geojson.features.push(feature);
+			}
+		}
 
-		for (var i = 0; i < way.nodes().length; i++) {
-			if (nodes.hasOwnProperty(way.nodes()[i])) {
-				feature.geometry.coordinates.push(nodes[way.nodes()[i]]);
-			}
-		}
-		if (feature.geometry.coordinates.length > 0) {
-			geojson.features.push(feature);
-		}
 	});
-
-	reader.apply(handler);
-	var outputFilename = path + boundfile.split('.')[0] + '-' + osmfile.split('.')[0] + '.geojson';
+	osmium.apply(reader, handler);
+	var outputFilename = 'output/' + boundfile.split('/')[1].split('.')[0] + '-' + osmfile.split('/')[1].split('.')[0] + '.geojson';
 	fs.writeFile(outputFilename, JSON.stringify(geojson), function(err) {
 		if (err) {
 			console.log(err);
@@ -66,7 +49,6 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 		}
 	});
 });
-
 
 function pointinpolygon(point, vs) {
 	var x = point[0],

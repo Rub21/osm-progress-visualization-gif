@@ -9,11 +9,7 @@ osm-progress-visualization
 
 `npm install`
 
-# 2. Download files from http://planet.osm.org/replication/day/000/000/
-
-`$ ./retrieve-day 705 716`
-
-# 3. Draw Boundary
+# 2. Draw Boundary
 
  http://geojson.io/#map=2/20.1/0.0
 
@@ -62,9 +58,7 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 
 ![screenshot from 2014-10-20 20 39 06](https://cloud.githubusercontent.com/assets/1152236/4711417/b463ea54-58ba-11e4-9061-28fe2a17df11.png)
 
-# 4. Process files
-
-- Process in block:
+# 3. Filter 
 
 `./process-files 705 716 dc.geojson`
 

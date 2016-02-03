@@ -1,17 +1,25 @@
 {
-  "name": "osm-progress-visualization",
-  "version": "0.0.1",
-  "main": "./index",
-  "engines": {
-    "node": "0.10.28"
-  },
+  "name": "osm-progress-visualization-gif",
+  "version": "1.0.0",
+  "description": "osm-progress-visualization",
+  "main": "index.js",
   "dependencies": {
     "optimist": "^0.6.1",
-    "osmium": "^0.1.3",
-    "sax": "^0.6.0",
-    "zlib": "^1.0.5"
+    "osmium": "^0.4.4",
+    "sax": "^1.1.5"
   },
+  "devDependencies": {},
   "scripts": {
-    "run": "./index.js"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rub21/osm-progress-visualization-gif.git"
+  },
+  "author": "Ruben Lopez M <ruben@mapbox.com> (http://rub21.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rub21/osm-progress-visualization-gif/issues"
+  },
+  "homepage": "https://github.com/Rub21/osm-progress-visualization-gif#readme"
 }

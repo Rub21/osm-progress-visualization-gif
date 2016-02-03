@@ -1,0 +1,10 @@
+#!/bin/bash
+nohup ./togeojson 476 576 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log1.json 2>&1 &
+nohup ./togeojson 577 676 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log2.json 2>&1 &
+nohup ./togeojson 677 776 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log3.json 2>&1 &
+nohup ./togeojson 777 876 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log4.json 2>&1 &
+nohup ./togeojson 877 976 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log4.json 2>&1 &
+nohup ./togeojson 977 999 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson > log5.json 2>&1 &
+nohup ./togeojson 0 100 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log5.json 2>&1 &
+nohup ./togeojson 101 200 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log5.json 2>&1 &
+nohup ./togeojson 201 239 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log5.json 2>&1 &
