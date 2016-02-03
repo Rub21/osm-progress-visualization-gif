@@ -4,14 +4,14 @@ mkdir -p data
 path_files="data/"
 for i in $(seq $1 $2)
 do	
-  if (($i<10)); then
-    curl $300$i.osc.gz -o $path_files$i.osc.gz
-  fi
-  if (($i<100)) && (($i>=10)); then
-    curl $30$i.osc.gz -o $path_files$i.osc.gz
-  fi
-  if (($i>=100)); then
-    curl $3$i.osc.gz -o $path_files$i.osc.gz
-  fi 
+  # if (($i<10)); then
+  #   curl $300$i.osc.gz -o $path_files$i.osc.gz
+  # fi
+  # if (($i<100)) && (($i>=10)); then
+  #   curl $30$i.osc.gz -o $path_files$i.osc.gz
+  # fi
+  # if (($i>=100)); then
+  #   curl $3$i.osc.gz -o $path_files$i.osc.gz
+  # fi 
 	node index.js --osmfile $path_files$i.osc.gz --boundfile $4
 done
