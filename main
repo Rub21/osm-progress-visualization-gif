@@ -1,20 +1,20 @@
 #!/bin/bash
 #DIRECTORY 000
-nohup ./togeojson 476 526 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log1.json 2>&1 &
-nohup ./togeojson 527 577 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log2.json 2>&1 &
-nohup ./togeojson 578 628 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log3.json 2>&1 &
-nohup ./togeojson 629 679 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log4.json 2>&1 &
-nohup ./togeojson 680 730 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log5.json 2>&1 &
-nohup ./togeojson 731 781 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log6.json 2>&1 &
-nohup ./togeojson 782 832 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log7.json 2>&1 &
-nohup ./togeojson 833 883 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log8.json 2>&1 &
-nohup ./togeojson 884 934 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log9.json 2>&1 &
-nohup ./togeojson 935 985 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log10 .json 2>&1 &
-nohup ./togeojson 986 999  http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log11 .json 2>&1 &
+# nohup ./togeojson 476 526 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log1.json 2>&1 &
+# nohup ./togeojson 527 577 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log2.json 2>&1 &
+# nohup ./togeojson 578 628 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log3.json 2>&1 &
+# nohup ./togeojson 629 679 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log4.json 2>&1 &
+# nohup ./togeojson 680 730 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log5.json 2>&1 &
+# nohup ./togeojson 731 781 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log6.json 2>&1 &
+# nohup ./togeojson 782 832 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log7.json 2>&1 &
+# nohup ./togeojson 833 883 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log8.json 2>&1 &
+# nohup ./togeojson 884 934 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log9.json 2>&1 &
+# nohup ./togeojson 935 985 http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log10 .json 2>&1 &
+# nohup ./togeojson 986 999  http://planet.openstreetmap.org/replication/day/000/000/ places/sf.geojson  > log11 .json 2>&1 &
 
 ##DIRECTORY 001
-nohup ./togeojson 0 50  | http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log 12.json 2>&1 &
-nohup ./togeojson 51  101 | http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log 13.json 2>&1 &
-nohup ./togeojson 102 152 | http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log 14.json 2>&1 &
-nohup ./togeojson 153 203 | http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log 15.json 2>&1 &
-nohup ./togeojson 204 239 | http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log 16.json 2>&1 &
+nohup ./togeojson 0 50  http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log12.json 2>&1 &
+nohup ./togeojson 51  101 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log13.json 2>&1 &
+nohup ./togeojson 102 152 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log14.json 2>&1 &
+nohup ./togeojson 153 203 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log15.json 2>&1 &
+nohup ./togeojson 204 239 http://planet.openstreetmap.org/replication/day/000/001/ places/sf.geojson > log16.json 2>&1 &
